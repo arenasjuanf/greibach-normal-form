@@ -1,7 +1,21 @@
-{{ 
-    { 
-        test: 1,
-        prueba: 'one'
-    }
-    | json 
-}}
+
+<mat-accordion class="m-2">
+    <mat-expansion-panel #panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Ejemplos
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list>
+            <mat-divider></mat-divider>
+            <mat-list-item *ngFor="let item of ejemplos" (click)="setEjemplo(item); panel.close()">
+                {{ 
+                    item
+                    | json 
+                }}
+            </mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+    </mat-expansion-panel>
+</mat-accordion>
+

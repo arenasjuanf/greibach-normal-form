@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FormComponent } from './components/form/form.component';
 import { MaterialModule } from './material.module';
 import { ResultComponent } from './components/result/result.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ResultComponent } from './components/result/result.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

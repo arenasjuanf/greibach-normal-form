@@ -1,15 +1,56 @@
-<mat-grid-list cols="12" rowHeight="100px">
-    <mat-grid-tile
-        [colspan]="10"
-    >
-        <mat-form-field class="full-width" appearance="fill">
-            <mat-label>Gramatica libre de contexto</mat-label>
-            <textarea matInput ></textarea>
-        </mat-form-field>
-    </mat-grid-tile>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <form class="example-form">
+                <mat-form-field class="full-width" appearance="fill">
+                    <mat-label>Gramatica libre de contexto</mat-label>
+                    <textarea matInput [(ngModel)]="value" name="value"></textarea>
+                </mat-form-field>
+            </form>
+            <div class="btn-container">
+                <button mat-raised-button [disabled]="!value"  (click)="transformar()">
+                    Transformar
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div  class="gramatic-container col-6" *ngIf="datos?.gramatica">
+            <div class="gramatic" >
+                <h4> Gramática Inicial</h4>
+                <p *ngFor="let key of keys(datos?.gramatica)">
+                    {{key}} ➔ <b>{{ datos?.gramatica[key] }}</b>
+                </p>
+            </div>
+        </div>
+        <div  class="gramatic-container col-6" *ngIf="datos?.nuevasVariables">
+            <div class="gramatic" >
+                <h4> Nuevas Variables</h4>
+                <p *ngFor="let key of keys(datos?.nuevasVariables)">
+                    {{key}} = <b>{{ datos?.nuevasVariables[key] }}</b>
+                </p>
+            </div>
+        </div>
+        <div  class="gramatic-container col-6" *ngIf="datos?.gramaticaIntermedia">
+            <div class="gramatic" >
+                <h4> Gramática  intermedia</h4>
+                <p *ngFor="let key of keys(datos?.gramaticaIntermedia)">
+                    {{key}} = <b>{{ datos?.gramaticaIntermedia[key] }}</b>
+                </p>
+            </div>
+        </div>
+        <div  class="gramatic-container col-6" *ngIf="datos?.gramaticaFinal">
+            <div class="gramatic" >
+                <h4> Gramática  Final</h4>
+                <p *ngFor="let key of keys(datos?.gramaticaFinal)">
+                    {{key}} ➔ <b>{{ datos?.gramaticaFinal[key] }}</b>
+                </p>
+            </div>
+        </div>
+    </div>
 
-    <mat-grid-tile [colspan]="2">
-        <button mat-raised-button>Transform</button>
-    </mat-grid-tile>
     
-</mat-grid-list>
+
+</div>
+
+
